@@ -10,38 +10,55 @@
 <body>
 <H1>Convertidor de Monedas</H1>
 <div name="Convertidor" class="panel-body">
-    <br>
-    <br>
-    <h4>Cantidad:</h4>
-   
-    <input class="form-control"type="number"></input>
-    <h4>Divisa:</h4>
-    <select class="form-control">
-    <option> (MXN) Pesos Mexicanos </option>
-    <option> (EUR) Euros </option>
-    <option> (GBP) Libra Esterlina  </option>
-    <option> (CNY) Yuan </option>
-    <option> (BRL) Real Brasil </option>
-    
-    </select>
-    <br>
-    <br>
-    <button type="button" class="btn btn-default">Convertir</button>
-    <br>
-    
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="cuenta">Cantidad:</label>
+        <input type="number" class="form-control" id="cantidad" ng-model="cantidad">
+      </div>
+      <div class="form-group">
+        <label for="cuenta">Divisa:</label>
+        <select class="form-control" id="moneda" ng-model="moneda">
+          <option> (MXN) Pesos Mexicanos </option>
+          <option> (EUR) Euros </option>
+          <option> (GBP) Libra Esterlina  </option>
+          <option> (CNY) Yuan </option>
+          <option> (BRL) Real Brasil </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-default">Convertir</button>
+      </div>
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>#</th>
+                  <th ng-click="orderByMe('cuenta')">Moneda</th>
+                  <th ng-click="orderByMe('departamento')">Valor</th>
+
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="item in todo.empleados | filter:test | orderBy:myOrderBy">
+              <!--{{ todo.empleados.length | number }}-->
+              <td>{{$index + 1}}</td>
+              <td>{{item.cuenta}}</td>
+              <td>{{item.departamento}}</td>
+              </tr>
+          </tbody>
+      </table>
     <div name="Conversiones" class="container">
     <br>
     <label>EUR:</label>
     <br>
     <label>GBP:</label>
-    <br>    
+    <br>
     <label>MXN:</label>
-    <br>    
+    <br>
     <label>CNY:</label>
-    <br>    
+    <br>
     <label>BRL:</label>
     </div>
 </div>
 </body>
-    
+
 </html>
