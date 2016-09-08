@@ -9,19 +9,37 @@
 </head>
 <body>
 <H1>Convertidor de Monedas</H1>
-<div name="Convertidor">
+<div name="Convertidor" class="panel-body">
     <br>
     <br>
-    Cantidad: <input type="number"></input>
-    <select>
+    <h4>Cantidad:</h4>
+   
+    <input class="form-control"type="number"></input>
+    <h4>Divisa:</h4>
+    <select class="form-control">
+    <option> (MXN) Pesos Mexicanos </option>
+    <option> (EUR) Euros </option>
+    <option> (GBP) Libra Esterlina  </option>
+    <option> (CNY) Yuan </option>
+    <option> (BRL) Real Brasil </option>
     
     </select>
     <br>
     <br>
-    <button>Convertir</button>
-    <div name="Conversiones">
+    <button type="button" class="btn btn-default">Convertir</button>
     <br>
     
+    <div name="Conversiones" class="container">
+    <br>
+    <label>EUR:</label>
+    <br>
+    <label>GBP:</label>
+    <br>    
+    <label>MXN:</label>
+    <br>    
+    <label>CNY:</label>
+    <br>    
+    <label>BRL:</label>
     </div>
 </div>
 </body>
