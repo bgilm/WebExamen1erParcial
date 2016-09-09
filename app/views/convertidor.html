@@ -7,6 +7,7 @@
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../../bower_components/angularjs-dropdown-multiselect/src/angularjs-dropdown-multiselect.js"></script>
 
     <script src="../../app/scripts/app.js"></script>
 </head>
@@ -22,10 +23,9 @@
       </div>
       <div class="form-group">
         <label for="cuenta">Divisa:</label>
-        <select class="form-control" id="moneda" ng-model="moneda">
-          <option ng-repeat="moneda in monedas"> ({{moneda.abreviacion}}) {{moneda.nombre}} </option>
-
-        </select>
+          
+       <div ng-dropdown-multiselect="" options="monedas" selected-model="monedasmodel"></div>
+          
       </div>
       <div class="form-group">
         <button type="button" class="btn btn-default" ng-click="showme=true">Convertir</button>
@@ -42,9 +42,9 @@
           <tbody>
               <tr ng-repeat="moneda in monedas | filter:test | orderBy:myOrderBy">
               <!--{{ todo.empleados.length | number }}-->
-              <td>{{moneda.abreviacion}}</td>
-              <td><img src="{{moneda.bandera}}" class="banderas" style="width:25px;height:16px;"> {{moneda.nombre}}</td>
-              <td>{{ convertir(resultado.valor,moneda.valor) }}</td>
+              <td ng-if="moneda.valor == currency.select">{{moneda.abreviacion}}</td>
+              <td ng-if="moneda.valor == currency.select"><img src="{{moneda.bandera}}" class="banderas" style="width:25px;height:16px;"> {{moneda.nombre}}</td>
+              <td ng-if="moneda.valor == currency.select">{{ convertir(resultado.valor,currency.select) }}</td>
               </tr>
           </tbody>
       </table>
