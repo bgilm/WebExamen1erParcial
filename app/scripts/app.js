@@ -11,8 +11,15 @@
 var App= angular.module('examenCurrencyApp', []);
 
 App.controller('listaTodoController',function($scope,$http){
-               $http.get('../monedas.json')
-                   .then(function(res){
-                    $scope.monedas=res.data;
-                });
+
+  $http.get('../monedas.json').then(function(res){
+    $scope.monedas=res.data;
+  });
+  $scope.convertir = function(cantidad, valor){
+    var resultado = 0.0;
+    resultado = cantidad*valor;
+    return resultado;
+
+    }
+
 });

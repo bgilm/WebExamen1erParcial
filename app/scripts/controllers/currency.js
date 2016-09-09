@@ -1,4 +1,3 @@
-
     var modelo= {
 
         empleados:[{cuenta:"123456789", nombre:"Benjamin Gil Mendoza",departamento:"Limpieza"},
@@ -8,6 +7,10 @@
     var listaTodo = angular.module("listaTodo",[]);
     listaTodo.controller("listaTodoController",function($scope){
        $scope.todo = modelo;
+       $scope.resultado = {
+        text: 'guest',
+        word: /^\s*\w*\s*$/
+        };
         $scope.tareasIncompletas = function(){
             var contador = 0;
             angular.forEach($scope.todo.acciones,function(item){

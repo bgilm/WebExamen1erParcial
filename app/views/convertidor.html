@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html ng-app="examenCurrencyApp">
+
 <head>
     <title>Convertidor Monedas</title>
     <meta charset="utf-8"/>
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <script src="../../bower_components/angular/angular.js"></script>
-    
+
     <script src="../../app/scripts/app.js"></script>
 </head>
 <body ng-controller="listaTodoController">
@@ -17,55 +18,37 @@
     <form class="form-inline">
       <div class="form-group">
         <label for="cuenta">Cantidad:</label>
-        <input type="number" class="form-control" id="cantidad" ng-model="cantidad">
+        <input type="number" class="form-control" id="cantidad" ng-model="resultado.valor">
       </div>
       <div class="form-group">
         <label for="cuenta">Divisa:</label>
         <select class="form-control" id="moneda" ng-model="moneda">
-          <option> (MXN) Pesos Mexicanos </option>
-          <option> (EUR) Euros </option>
-          <option> (GBP) Libra Esterlina  </option>
-          <option> (CNY) Yuan </option>
-          <option> (BRL) Real Brasil </option>
+          <option ng-repeat="moneda in monedas"> ({{moneda.abreviacion}}) {{moneda.nombre}} </option>
+
         </select>
       </div>
       <div class="form-group">
-        <button type="button" class="btn btn-default">Convertir</button>
+        <button type="button" class="btn btn-default" ng-click="showme=true">Convertir</button>
       </div>
-      <table class="table">
+      <table class="table" ng-show="showme">
           <thead>
               <tr>
-                  <th>#</th>
+                  <th>Abreviacion</th>
                   <th ng-click="orderByMe('cuenta')">Moneda</th>
                   <th ng-click="orderByMe('departamento')">Valor</th>
 
               </tr>
           </thead>
           <tbody>
-              <tr ng-repeat="item in todo.empleados | filter:test | orderBy:myOrderBy">
+              <tr ng-repeat="moneda in monedas | filter:test | orderBy:myOrderBy">
               <!--{{ todo.empleados.length | number }}-->
-              <td>{{$index + 1}}</td>
-              <td>{{item.cuenta}}</td>
-              <td>{{item.departamento}}</td>
+              <td>{{moneda.abreviacion}}</td>
+              <td><img src="{{moneda.bandera}}" class="banderas" style="width:25px;height:16px;"> {{moneda.nombre}}</td>
+              <td>{{ convertir(resultado.valor,moneda.valor) }}</td>
               </tr>
           </tbody>
       </table>
-    <div name="Conversiones" class="container">
-    <br>
-    <label>EUR:</label>
-    <br>
-    <label>GBP:</label>
-    <br>
-    <label>MXN:</label>
-    <br>
-    <label>CNY:</label>
-    <br>
-    <label ng-repeat="moneda in monedas">BRL: {{moneda.nombre}}</label>
-    <li>
-     
-    </li>
     </div>
-</div>
 </body>
 
 </html>
