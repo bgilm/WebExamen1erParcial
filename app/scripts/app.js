@@ -8,5 +8,11 @@
  *
  * Main module of the application.
  */
-angular
-  .module('examenCurrencyApp', []);
+var App= angular.module('examenCurrencyApp', []);
+
+App.controller('listaTodoController',function($scope,$http){
+               $http.get('../monedas.json')
+                   .then(function(res){
+                    $scope.monedas=res.data;
+                });
+});

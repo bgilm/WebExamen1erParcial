@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="examenCurrencyApp">
 <head>
     <title>Convertidor Monedas</title>
     <meta charset="utf-8"/>
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <script src="../../bower_components/angular/angular.js"></script>
-    <script src="../../app/scripts/controllers/currency.js"></script>
+    
+    <script src="../../app/scripts/app.js"></script>
 </head>
 <body ng-controller="listaTodoController">
   <div class="page-header">
@@ -59,7 +60,10 @@
     <br>
     <label>CNY:</label>
     <br>
-    <label>BRL:</label>
+    <label ng-repeat="moneda in monedas">BRL: {{moneda.nombre}}</label>
+    <li>
+     
+    </li>
     </div>
 </div>
 </body>
