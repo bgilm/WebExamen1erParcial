@@ -11,17 +11,19 @@
 var App= angular.module('examenCurrencyApp', ['angularjs-dropdown-multiselect']);
 
 App.controller('listaTodoController',function($scope,$http, $interval){
-    
+
   $interval(
   $http.get('../monedas.json').then(function(res){
     $scope.monedas=res.data;
-    $scope.monedasmodel=[];
-   
+    $scope.a = {
+    select: []
+     };
+
   }), 5000);
 
-  $scope.convertir = function(cantidad, valor){
+  $scope.convertir = function(cantidad, valor1, valor2){
     var resultado = 0.0;
-    resultado = cantidad*valor;
+    resultado = cantidad*valor1/valor2;
     return resultado;
 
     }

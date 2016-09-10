@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css"/>
     <script src="../../bower_components/angular/angular.js"></script>
     <script src="../../bower_components/angularjs-dropdown-multiselect/src/angularjs-dropdown-multiselect.js"></script>
-
     <script src="../../app/scripts/app.js"></script>
+    <link href="../../scripts/main.css" rel="stylesheet" />
+
 </head>
 <body ng-controller="listaTodoController">
   <div class="page-header">
@@ -22,10 +23,19 @@
         <input type="number" class="form-control" id="cantidad" ng-model="resultado.valor">
       </div>
       <div class="form-group">
-        <label for="cuenta">Divisa:</label>
-          
-       <div ng-dropdown-multiselect="" options="monedas" selected-model="monedasmodel"></div>
-          
+        <label for="de">De:</label>
+       <!--<div ng-dropdown-multiselect="" options="monedas" selected-model="monedasmodel"></div>-->
+        <select class="form-control" id="de" ng-model="de.select">
+          <option ng-repeat="moneda in monedas" value="{{moneda.valor}}" selected="selected"> ({{moneda.abreviacion}}) {{moneda.nombre}} </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="a">A:</label>
+       <!--<div ng-dropdown-multiselect="" options="monedas" selected-model="monedasmodel"></div>-->
+        <select class="form-control" id="a" ng-model="a.select" ng-model="a.multipleSelect" multiple>
+          <option ng-repeat="moneda in monedas" value="{{moneda.valor}}"> ({{moneda.abreviacion}}) {{moneda.nombre}} </option>
+        </select>
+
       </div>
       <div class="form-group">
         <button type="button" class="btn btn-default" ng-click="showme=true">Convertir</button>
@@ -39,12 +49,12 @@
 
               </tr>
           </thead>
-          <tbody>
+          <tbody ng-repeat="cascado in a.select">
               <tr ng-repeat="moneda in monedas | filter:test | orderBy:myOrderBy">
               <!--{{ todo.empleados.length | number }}-->
-              <td ng-if="moneda.valor == currency.select">{{moneda.abreviacion}}</td>
-              <td ng-if="moneda.valor == currency.select"><img src="{{moneda.bandera}}" class="banderas" style="width:25px;height:16px;"> {{moneda.nombre}}</td>
-              <td ng-if="moneda.valor == currency.select">{{ convertir(resultado.valor,currency.select) }}</td>
+                <td ng-if="moneda.valor == cascado">{{moneda.abreviacion}}</td>
+                <td ng-if="moneda.valor == cascado"><img src="{{moneda.bandera}}" class="banderas" style="width:25px;height:16px;"> {{moneda.nombre}}</td>
+                <td ng-if="moneda.valor == cascado">{{ convertir(resultado.valor,de.select,cascado) | currency}}</td>
               </tr>
           </tbody>
       </table>

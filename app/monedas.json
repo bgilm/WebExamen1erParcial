@@ -1,4 +1,5 @@
-[{ "nombre": "Euro", "abreviacion": "EUR" , "valor": 0.889165, "bandera":"../images/euro-flag.jpg"},
- { "nombre": "Peso Mexicano", "abreviacion": "MXN", "valor": 18.3798,"bandera":"../images/Mexico-flag.jpg" },
- { "nombre": "Bitcoin", "abreviacion": "XBT", "valor": 0.00163071,"bandera":"../images/BitCoin-flag.jpg" },
- { "nombre": "Franco burundí", "abreviacion": "BIF", "valor": 1.67560,"bandera":"../images/burundi-flag.png" }]
+[{ "nombre": "US Dolar", "abreviacion": "USD" , "valor": 1, "bandera":"../images/us-flag.jpg"},
+ { "nombre": "Euro", "abreviacion": "EUR" , "valor": 1.12320, "bandera":"../images/euro-flag.jpg"},
+ { "nombre": "Peso Mexicano", "abreviacion": "MXN", "valor": 0.05289,"bandera":"../images/Mexico-flag.jpg" },
+ { "nombre": "Bitcoin", "abreviacion": "XBT", "valor": 622.925,"bandera":"../images/BitCoin-flag.jpg" },
+ { "nombre": "Franco burundí", "abreviacion": "BIF", "valor": 0.00064058,"bandera":"../images/burundi-flag.png" }]
