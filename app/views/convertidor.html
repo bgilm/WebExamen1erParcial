@@ -13,7 +13,7 @@
 
 </head>
 <body ng-controller="listaTodoController">
-  <div class="page-header">
+  <div class="page-header" >
     <H1>Convertidor de Monedas</H1>
   </div>
 <div name="Convertidor" class="panel-body">
@@ -26,7 +26,7 @@
         <label for="de">De:</label>
        <!--<div ng-dropdown-multiselect="" options="monedas" selected-model="monedasmodel"></div>-->
         <select class="form-control" id="de" ng-model="de.select">
-          <option ng-repeat="moneda in monedas" value="{{moneda.valor}}" selected="selected"> ({{moneda.abreviacion}}) {{moneda.nombre}} </option>
+          <option ng-repeat="moneda in monedas" value="{{moneda.valor}}"> ({{moneda.abreviacion}}) {{moneda.nombre}} </option>
         </select>
       </div>
       <div class="form-group">
@@ -38,9 +38,9 @@
 
       </div>
       <div class="form-group">
-        <button type="button" class="btn btn-default" ng-click="showme=true">Convertir</button>
+        <button type="button" class="btn btn-primary" ng-click="showme=true">Convertir</button>
       </div>
-      <table class="table" ng-show="showme">
+      <table class="table table-striped table-condensed" ng-show="showme">
           <thead>
               <tr>
                   <th>Abreviacion</th>
